@@ -1,18 +1,20 @@
 import { Category } from '../models/Category';
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from './ICategoriesRepository';
 
-interface IRequest {
-  name: string;
-  description: string;
-}
-
-class CategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
 
   constructor() {
     this.categories = [];
   }
 
-  public async create({ name, description }: IRequest): Promise<Category> {
+  public async create({
+    name,
+    description,
+  }: ICreateCategoryDTO): Promise<Category> {
     const category = new Category();
 
     Object.assign(category, {
