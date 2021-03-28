@@ -1,12 +1,12 @@
-import { Category } from '../models/Category';
-import { ICategoriesRepository } from '../repositories/ICategoriesRepository';
+import { Category } from '../../models/Category';
+import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IRequest {
   name: string;
   description: string;
 }
 
-class CreateCategoryService {
+class CreateCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
   public async execute({ name, description }: IRequest): Promise<Category> {
@@ -27,4 +27,4 @@ class CreateCategoryService {
   }
 }
 
-export { CreateCategoryService };
+export { CreateCategoryUseCase };
